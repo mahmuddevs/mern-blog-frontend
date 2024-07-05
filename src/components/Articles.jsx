@@ -6,34 +6,32 @@ export function Articles(props) {
     <div className="col-lg-8 mb-5 mb-lg-0">
       <div className="row">
         {blogs.map((blog, index) => {
-          return <>
-            <div key={blog._id} className={`${index==0?"col-12":"col-6"} mb-4`}>
-              <article className="card article-card">
-                <Link to={`/show-blog/${blog._id}`}>
-                  <div className="card-image">
-                    <div className="post-info"> <span className="text-uppercase">04 Jun 2021</span>
-                      <span className="text-uppercase">3 minutes read</span>
-                    </div>
-                    <img loading="lazy" decoding="async" src={`http://localhost:3000/uploads/blogs/${blog.postThumbnail}`} alt="Post Thumbnail" className="w-100" />
+          return <div key={blog._id} className={`${index == 0 ? "col-12" : "col-6"} mb-4`}>
+            <article className="card article-card">
+              <Link to={`/show-blog/${blog._id}`}>
+                <div className="card-image">
+                  <div className="post-info"> <span className="text-uppercase">04 Jun 2021</span>
+                    <span className="text-uppercase">3 minutes read</span>
                   </div>
-                </Link>
-                <div className="card-body px-0 pb-1">
-                  <ul className="post-meta mb-2">
-                    <li> <a href="#!">travel</a>
-                      <a href="#!">news</a>
-                    </li>
-                  </ul>
-                  <h2 className="h1"><Link className="post-title" to={`/show-blog/${blog._id}`}>{blog.title}</Link></h2>
-                  <p className="card-text">{blog.content}</p>
-                  <div className="content"> <Link className="read-more-btn" to={`/show-blog/${blog._id}`}>Read Full Article</Link>
-                  </div>
+                  <img loading="lazy" decoding="async" src={`http://localhost:3000/uploads/blogs/${blog.postThumbnail}`} alt="Post Thumbnail" className="w-100" />
                 </div>
-              </article>
-            </div>
-          </>
+              </Link>
+              <div className="card-body px-0 pb-1">
+                <ul className="post-meta mb-2">
+                  <li> <a href="#!">travel</a>
+                    <a href="#!">news</a>
+                  </li>
+                </ul>
+                <h2 className="h1"><Link className="post-title" to={`/show-blog/${blog._id}`}>{blog.title}</Link></h2>
+                <p className="card-text">{blog.content}</p>
+                <div className="content"> <Link className="read-more-btn" to={`/show-blog/${blog._id}`}>Read Full Article</Link>
+                </div>
+              </div>
+            </article>
+          </div>
         })}
 
-        
+
         <div className="col-12">
           <div className="row">
             <div className="col-12">
