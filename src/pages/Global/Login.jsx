@@ -10,14 +10,12 @@ const Login = () => {
     try {
       await axios.post('http://localhost:3000/users/login', data, { withCredentials: true })
       .then((res) => { 
-          setUserLoading(true)
           setUser(res?.data)
       })
       .catch((error) => { console.log(error); })
     } catch (error) {
       console.error('Login error:', error);
     }
-    setUserLoading(false)
   }
   return (
     <LoginForm register={register} handleSubmit={handleSubmit(onSubmit)} errors={errors} />

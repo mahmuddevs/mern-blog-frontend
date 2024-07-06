@@ -7,15 +7,21 @@ export const AuthContext = createContext(null)
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined)
-  const [userLoading, setUserLoading] = useState(false)
+  const [userLoading, setUserLoading] = useState(true)
 
   useEffect(() => {
     const token = Cookies.get('token')
     if(token){
       axios.get('http://localhost:3000/users/verify', { withCredentials: true })
-        .then((res) => { setUser(res.data) })
+        .then((res) => { 
+          setUser(res.data) 
+          setUserLoading(false)     
+         })
         .catch((error) => { console.log(error) })
-    }    
+    }else{
+      setUserLoading(false) 
+    } 
+    
   }, []);
 console.log(user);
 

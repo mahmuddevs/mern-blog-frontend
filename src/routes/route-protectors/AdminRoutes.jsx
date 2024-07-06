@@ -13,7 +13,7 @@ const AdminRoutes = ({children}) => {
         return children
     }
 
-    return "error"
+    return <Navigate to={"/"} />
 
 }
 
